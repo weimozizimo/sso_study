@@ -1,0 +1,22 @@
+auth-server: http://localhost:8080/auth
+server:
+  port: 8084
+  servlet:
+    context-path: /
+security:
+  oauth2:
+    client:
+      clientId: handleCilentId
+      clientSecret: secret
+      accessTokenUri: ${auth-server}/oauth/token
+      userAuthorizationUri: ${auth-server}/oauth/authorize
+    resource:
+      userInfoUri: ${auth-server}/user
+
+spring:
+  thymeleaf:
+    cache: false
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML5
+    encoding: UTF-8

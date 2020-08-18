@@ -1,0 +1,5 @@
+boot\config\OauthServerConfig.class
+boot\controller\UserInfoController.class
+boot\MainApplication.class
+boot\controller\LoginController.class
+boot\config\WebSecurityConfig.class
