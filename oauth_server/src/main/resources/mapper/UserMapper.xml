@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="boot.dao.UserDao">
+    <resultMap id="credtialMap" type="boot.domain.Credentials">
+        <id property="id" column="id"/>
+        <result property="enabled" column="enabled"/>
+        <result property="name" column="name"/>
+        <result property="password" column="password"/>
+        <result property="version" column="version"/>
+        <collection property="authorities" ofType="boot.domain.Authority" column="id">
+            <id property="id" column="aId"/>
+            <result property="authority" column="authority"/>
+        </collection>
+    </resultMap>
+
+
+    <select id="getUserByName" resultMap="credtialMap">
+        SELECT c.id id,c.enabled enabled,c.name name,c.password password,c.version version,a.id aId,a.authority authority
+        FROM credentials c
+        LEFT JOIN
+        credentials_authorities ca
+        on c.id = ca.credentials_id
+        LEFT JOIN
+        authority a
+        on ca.authorities_id = a.id
+        <where>
+            AND c.name = #{username}
+        </where>
+    </select>
+
+</mapper>

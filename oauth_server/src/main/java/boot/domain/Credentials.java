@@ -2,11 +2,15 @@ package boot.domain;
 
 import lombok.Data;
 
+import java.util.List;
+
 @Data
 public class Credentials {
-    private String id;
+    private int id;
     private int enabled;
     private String name;
     private String password;
     private int version;
+
+    private List<Authority> authorities;
 }
