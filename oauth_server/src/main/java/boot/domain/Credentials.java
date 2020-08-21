@@ -7,7 +7,7 @@ import java.util.List;
 @Data
 public class Credentials {
     private int id;
-    private int enabled;
+    private boolean enabled;
     private String name;
     private String password;
     private int version;

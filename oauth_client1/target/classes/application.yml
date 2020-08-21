@@ -1,4 +1,4 @@
-auth-server: http://localhost:8080/auth
+auth-server: http://localhost:8081/auth
 server:
   port: 8082
   servlet:
@@ -6,8 +6,8 @@ server:
 security:
   oauth2:
     client:
-      clientId: handleCilentId
-      clientSecret: secret
+      clientId: client_1
+      clientSecret: client_1
       accessTokenUri: ${auth-server}/oauth/token
       userAuthorizationUri: ${auth-server}/oauth/authorize
     resource:
